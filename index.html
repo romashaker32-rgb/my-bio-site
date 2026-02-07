@@ -27,7 +27,6 @@
             overflow: hidden;
         }
 
-        /* ЭФФЕКТ ОТРАЖЕНИЯ СВЕТА НА ФОНЕ */
         .bg-glow {
             position: fixed;
             top: 50%; left: 50%;
@@ -47,7 +46,6 @@
             100% { transform: translate(-52%, -48%) scale(1.2); opacity: 0.2; }
         }
 
-        /* ПЛЕЕР В ЛЕВОМ ВЕРХНЕМ УГЛУ */
         .playlist-sidebar {
             position: fixed; top: 25px; left: 25px;
             width: 280px; background: var(--card-bg);
@@ -73,7 +71,6 @@
             color: var(--main-color); padding-left: 18px;
         }
 
-        /* ЦЕНТРАЛЬНАЯ КАРТОЧКА */
         .bio-container {
             position: relative; z-index: 10;
             width: 90%; max-width: 380px;
@@ -107,7 +104,6 @@
         .btn-da { background: #ff7200; border: 1px solid rgba(255,255,255,0.1); }
         .btn-dc { background: #5865F2; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* ИНТЕРФЕЙС УПРАВЛЕНИЯ */
         .theme-panel {
             position: fixed; bottom: 25px; left: 25px;
             background: var(--card-bg); padding: 12px;
@@ -174,18 +170,18 @@
         const audio = document.getElementById('main-player');
         const trackTitle = document.getElementById('track-name');
         
-        const tracks = ["music/found.mp3", "music/scared.mp3", "music/leave.mp3", "music/cult.mp3"];
+        // ПУТИ ИСПРАВЛЕНЫ ПОД ТВОЮ ПАПКУ music И ЦИФРЫ 1-4
+        const tracks = ["music/1.mp3", "music/2.mp3", "music/3.mp3", "music/4.mp3"];
         const trackNames = ["I found you", "Scared", "Leavemealone", "Cult member"];
 
         function playTrack(id, startTime) {
             audio.src = tracks[id];
             audio.onloadedmetadata = function() {
                 audio.currentTime = startTime;
-                audio.play().catch(e => console.log("Автовоспроизведение заблокировано браузером. Нажмите на страницу."));
+                audio.play().catch(e => console.log("Браузер ждет клика пользователя."));
             };
             trackTitle.innerText = "Playing: " + trackNames[id];
             
-            // Сброс и установка активной кнопки
             document.querySelectorAll('.track-btn').forEach((btn, i) => {
                 btn.classList.toggle('active', i === id);
             });
@@ -197,14 +193,14 @@
             document.querySelector('.avatar').style.boxShadow = `0 0 30px ${color}33`;
         }
 
-        // --- АВТОЗАПУСК ВТОРОГО ТРЕКА ПРИ ЗАГРУЗКЕ ---
+        // Автозапуск при загрузке (если браузер позволит)
         window.addEventListener('load', () => {
-            playTrack(1, 0); // Индекс 1 — это вторая песня в списке
+            playTrack(1, 0); 
         });
 
-        // На случай если браузер заблокировал музыку, включаем по первому клику
+        // Железная активация звука после первого клика по странице
         document.body.addEventListener('click', () => {
-            if (audio.paused) {
+            if (audio.paused && audio.src) {
                 audio.play();
             }
         }, { once: true });
