@@ -27,7 +27,6 @@
             overflow: hidden;
         }
 
-        /* ЭФФЕКТ ОТРАЖЕНИЯ СВЕТА НА ФОНЕ */
         .bg-glow {
             position: fixed;
             top: 50%; left: 50%;
@@ -47,7 +46,6 @@
             100% { transform: translate(-52%, -48%) scale(1.2); opacity: 0.2; }
         }
 
-        /* ПЛЕЕР В ЛЕВОМ ВЕРХНЕМ УГЛУ */
         .playlist-sidebar {
             position: fixed; top: 25px; left: 25px;
             width: 280px; background: var(--card-bg);
@@ -73,7 +71,6 @@
             color: var(--main-color); padding-left: 18px;
         }
 
-        /* ЦЕНТРАЛЬНАЯ КАРТОЧКА */
         .bio-container {
             position: relative; z-index: 10;
             width: 90%; max-width: 380px;
@@ -107,7 +104,6 @@
         .btn-da { background: #ff7200; border: 1px solid rgba(255,255,255,0.1); }
         .btn-dc { background: #5865F2; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* ИНТЕРФЕЙС УПРАВЛЕНИЯ */
         .theme-panel {
             position: fixed; bottom: 25px; left: 25px;
             background: var(--card-bg); padding: 12px;
@@ -147,7 +143,7 @@
             <a href="#" class="work-card"><span>🔮 ENX</span></a>
             <a href="#" class="work-card"><span>🌌 SpaceEvent</span></a>
             <a href="#" class="work-card"><span>👁️ SPEC</span></a>
-            <a href="#" class="work-card)<span>💳 GrantGive</span></a>
+            <a href="#" class="work-card"><span>💳 GrantGive</span></a>
         </div>
 
         <div class="social-footer">
@@ -165,7 +161,7 @@
 
     <div class="volume-box">
         <span>🔊</span>
-        <input type="range" min="0" max="1" step="0.01" value="0.5" oninput="setVolume(this.value)">
+        <input type="range" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
     </div>
 
     <audio id="main-player" loop></audio>
@@ -174,12 +170,11 @@
         const audio = document.getElementById('main-player');
         const trackTitle = document.getElementById('track-name');
         
-        // Пути к твоим файлам в папке music
         const tracks = ["music/1.mp3", "music/2.mp3", "music/3.mp3", "music/4.mp3"];
         const trackNames = ["I found you", "Scared", "Leavemealone", "Cult member"];
 
-        // Устанавливаем громкость по умолчанию
-        audio.volume = 0.5;
+        // Громкость на 100% сразу в коде
+        audio.volume = 1;
 
         function playTrack(id, startTime) {
             audio.src = tracks[id];
@@ -187,7 +182,7 @@
                 audio.currentTime = startTime;
                 let playPromise = audio.play();
                 if (playPromise !== undefined) {
-                    playPromise.catch(e => console.log("Нажми на экран для звука"));
+                    playPromise.catch(e => console.log("Нужен клик по странице для старта звука"));
                 }
             };
             trackTitle.innerText = "Playing: " + trackNames[id];
@@ -202,16 +197,13 @@
         function setTheme(color) { 
             document.documentElement.style.setProperty('--main-color', color);
             document.querySelector('.avatar').style.boxShadow = `0 0 30px ${color}33`;
-            // Обновляем цвет свечения фона под тему
             document.getElementById('glow').style.background = color;
         }
 
-        // Автозапуск второй песни
         window.addEventListener('load', () => {
             playTrack(1, 0); 
         });
 
-        // Мгновенная активация звука по первому клику
         document.body.addEventListener('click', () => {
             if (audio.paused && audio.src) {
                 audio.play();
