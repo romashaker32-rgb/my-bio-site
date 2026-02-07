@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#ᴍиᴄᴛᴇᴘ дᴇᴋᴏ — Bio</title>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card-bg: rgba(20, 20, 25, 0.9);
+            --main-color: #00aaff;
+            --text: #e1e1e1;
+        }
+
+        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f13 100%);
+            overflow: hidden;
+        }
+
+        /* ПЛЕЕР СВЕРХУ */
+        .playlist-header {
+            position: fixed;
+            top: 20px;
+            width: 90%;
+            max-width: 400px;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid var(--main-color);
+            padding: 12px;
+            z-index: 100;
+        }
+
+        .track-btn {
+            display: block; width: 100%;
+            background: none; border: none;
+            color: #888; padding: 8px 12px;
+            text-align: left; cursor: pointer;
+            font-size: 13px; border-radius: 10px;
+            margin-bottom: 4px;
+        }
+
+        .track-btn:hover, .track-btn.active {
+            background: rgba(255,255,255,0.05);
+            color: var(--main-color);
+            padding-left: 20px;
+        }
+
+        /* ОСНОВНОЙ БЛОК */
+        .bio-container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 360px;
+            padding: 30px 20px;
+            text-align: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--main-color);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            margin-top: 120px;
+        }
+
+        .avatar {
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--main-color);
+            margin-bottom: 15px;
+            object-fit: cover;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+
+        .work-card {
+            display: flex; align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 15px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid transparent;
+        }
+
+        .work-card:hover { border-color: var(--main-color); transform: translateX(5px); }
+
+        .social-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .btn { padding: 12px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: bold; font-size: 11px; text-transform: uppercase; text-align: center; }
+        .btn-da { background: #ff7200; }
+        .btn-dc { background: #5865F2; }
+
+        /* ТЕМЫ СЛЕВА */
+        .theme-panel {
+            position: fixed; bottom: 25px; left: 25px;
+            background: var(--card-bg);
+            padding: 10px; border-radius: 50px;
+            display: flex; gap: 10px; border: 1px solid var(--main-color);
+            z-index: 100;
+        }
+        .color-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+        .color-dot.active { border-color: #fff; transform: scale(1.1); }
+
+        /* ГРОМКОСТЬ СПРАВА */
+        .volume-box {
+            position: fixed; bottom: 25px; right: 25px;
+            display: flex; align-items: center; gap: 10px;
+            background: var(--card-bg);
+            padding: 12px 18px; border-radius: 50px;
+            border: 1px solid var(--main-color);
+            z-index: 100;
+        }
+        input[type=range] { width: 100px; cursor: pointer; accent-color: var(--main-color); }
+
+    </style>
+</head>
+<body>
+
+    <div class="playlist-header">
+        <button class="track-btn" onclick="playTrack(0, 21)">1. Fred again.. - I Found You (21s)</button>
+        <button class="track-btn" onclick="playTrack(1, 63)">2. Fred again.. - Pull Me Out (1m 3s)</button>
+        <button class="track-btn" onclick="playTrack(2, 0)">3. Fred again.. - Victory Lap</button>
+        <button class="track-btn" onclick="playTrack(3, 0)">4. Cult Member - U Weren't Here</button>
+    </div>
+
+    <div class="bio-container">
+        <img src="https://38mi38g4c9.ucarecd.net/fc7004cb-06e0-4aa1-94c6-ad38a901954d/6032936348341177763.jpg" class="avatar">
+        <h1 style="font-size: 26px; margin: 0;">#ᴍиᴄᴛᴇᴘ дᴇᴋᴏ</h1>
+        <p id="track-name" style="font-size: 13px; color: var(--main-color); margin-bottom: 25px; font-weight: bold;">Нажми на трек сверху 🎵</p>
+
+        <a href="#" class="work-card"><span>🔮 ENX</span></a>
+        <a href="#" class="work-card"><span>🌌 SpaceEvent</span></a>
+        <a href="#" class="work-card"><span>👁️ SPEC</span></a>
+        <a href="#" class="work-card"><span>💳 GrantGive</span></a>
+
+        <div class="social-footer">
+            <a href="https://www.donationalerts.com/r/deko4ka_qq" target="_blank" class="btn btn-da">Donate</a>
+            <a href="https://discord.gg/uZXr94zXk9" target="_blank" class="btn btn-dc">Discord</a>
+        </div>
+    </div>
+
+    <div class="theme-panel">
+        <div class="color-dot active" style="background: #00aaff;" onclick="setTheme('#00aaff', this)"></div>
+        <div class="color-dot" style="background: #ff4757;" onclick="setTheme('#ff4757', this)"></div>
+        <div class="color-dot" style="background: #2ed573;" onclick="setTheme('#2ed573', this)"></div>
+        <div class="color-dot" style="background: #ffa502;" onclick="setTheme('#ffa502', this)"></div>
+        <div class="color-dot" style="background: #ffffff;" onclick="setTheme('#ffffff', this)"></div>
+    </div>
+
+    <div class="volume-box">
+        <span>🔊</span>
+        <input type="range" min="0" max="1" step="0.01" value="0.5" oninput="setVolume(this.value)">
+    </div>
+
+    <audio id="main-player" loop></audio>
+
+    <script>
+        const audio = document.getElementById('main-player');
+        const trackTitle = document.getElementById('track-name');
+        
+        // РАБОЧИЕ ССЫЛКИ
+        const tracks = [
+            "https://p.scdn.co/mp3-preview/741e2646399c75a407897103845b542034e35759?cid=null", // I Found You
+            "https://p.scdn.co/mp3-preview/88e442588f01524388837375a0606f7b98d3637e?cid=null", // Pull Me Out
+            "https://p.scdn.co/mp3-preview/9f3d67f59453715d968515f4038a8e1882194639?cid=null", // Victory Lap
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" // Заглушка для Cult Member
+        ];
+
+        const trackNames = [
+            "Fred again.. - I Found You",
+            "Fred again.. - Pull Me Out",
+            "Fred again.. - Victory Lap",
+            "Cult Member - U Weren't Here"
+        ];
+
+        function playTrack(id, startTime) {
+            audio.src = tracks[id];
+            audio.currentTime = startTime;
+            audio.play().catch(e => {
+                console.log("Ошибка воспроизведения:", e);
+                trackTitle.innerText = "Ошибка: Ссылка не работает";
+            });
+            
+            trackTitle.innerText = "Играет: " + trackNames[id];
+            
+            document.querySelectorAll('.track-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === id);
+            });
+        }
+
+        function setVolume(v) { audio.volume = v; }
+
+        function setTheme(color, el) {
+            document.documentElement.style.setProperty('--main-color', color);
+            document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+            el.classList.add('active');
+        }
+    </script>
+</body>
+</html>
