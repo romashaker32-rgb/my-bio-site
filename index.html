@@ -1,213 +1,137 @@
 <!DOCTYPE html>
-<html lang="ru">
+<div style="display:none;">
+</div>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#ᴍиᴄᴛᴇᴘ дᴇᴋᴏ — Bio</title>
-    <style>
-        :root {
-            --bg: #0b0b0e;
-            --card-bg: rgba(15, 15, 20, 0.9);
-            --main-color: #00aaff;
-            --text: #e1e1e1;
-            --border-width: 1px;
-        }
-
-        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .bg-glow {
-            position: fixed;
-            top: 50%; left: 50%;
-            width: 500px; height: 500px;
-            background: var(--main-color);
-            filter: blur(120px);
-            opacity: 0.15;
-            border-radius: 50%;
-            z-index: 1;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            animation: pulseGlow 8s infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
-            100% { transform: translate(-52%, -48%) scale(1.2); opacity: 0.2; }
-        }
-
-        .playlist-sidebar {
-            position: fixed; top: 25px; left: 25px;
-            width: 280px; background: var(--card-bg);
-            backdrop-filter: blur(20px); border-radius: 20px;
-            border: var(--border-width) solid var(--main-color);
-            padding: 15px; z-index: 100;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .playlist-title {
-            font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
-            color: var(--main-color); margin-bottom: 10px; padding-left: 10px;
-        }
-
-        .track-btn {
-            display: block; width: 100%; background: none; border: none;
-            color: #666; padding: 10px 12px; text-align: left; cursor: pointer;
-            font-size: 12px; border-radius: 10px; margin-bottom: 4px;
-        }
-
-        .track-btn:hover, .track-btn.active {
-            background: rgba(255,255,255,0.05);
-            color: var(--main-color); padding-left: 18px;
-        }
-
-        .bio-container {
-            position: relative; z-index: 10;
-            width: 90%; max-width: 380px;
-            padding: 40px 25px; text-align: center;
-            background: var(--card-bg);
-            backdrop-filter: blur(30px);
-            border: var(--border-width) solid var(--main-color);
-            border-radius: 40px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
-        }
-
-        .avatar {
-            width: 130px; height: 130px; border-radius: 50%;
-            border: 2px solid var(--main-color); margin-bottom: 20px;
-            box-shadow: 0 0 30px rgba(0, 170, 255, 0.2);
-            object-fit: cover;
-        }
-
-        .work-card {
-            display: flex; align-items: center;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 14px 20px; border-radius: 18px;
-            margin-bottom: 10px; text-decoration: none;
-            color: #fff; border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .work-card:hover { border-color: var(--main-color); transform: translateY(-2px); }
-
-        .social-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
-        .btn { padding: 14px; border-radius: 16px; text-decoration: none; color: #fff; font-weight: 800; font-size: 11px; text-transform: uppercase; text-align: center; }
-        .btn-da { background: #ff7200; border: 1px solid rgba(255,255,255,0.1); }
-        .btn-dc { background: #5865F2; border: 1px solid rgba(255,255,255,0.1); }
-
-        .theme-panel {
-            position: fixed; bottom: 25px; left: 25px;
-            background: var(--card-bg); padding: 12px;
-            border-radius: 50px; display: flex; gap: 12px;
-            border: var(--border-width) solid var(--main-color); z-index: 100;
-        }
-        .color-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
-
-        .volume-box {
-            position: fixed; bottom: 25px; right: 25px;
-            display: flex; align-items: center; gap: 12px;
-            background: var(--card-bg); padding: 14px 20px;
-            border-radius: 50px; border: var(--border-width) solid var(--main-color); z-index: 100;
-        }
-        input[type=range] { width: 100px; cursor: pointer; accent-color: var(--main-color); }
-
-    </style>
+<meta charset="utf-8"/>
+<title>deko4ka - Bio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+body {
+  margin:0;
+  font-family:'Outfit',sans-serif;
+  color:white;
+  padding:40px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+  perspective:1000px;
+  background:black;
+}
+.video-bg {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  z-index:-1;
+}
+.bio-wrapper {
+  transition:transform 0.15s ease;
+  transform-style:preserve-3d;
+  width:100%;
+  max-width:720px;
+}
+.card, .block {
+  background:rgba(10,10,10,0.95);
+  border-radius:24px;
+  padding:32px;
+  width:100%;
+  box-shadow:0 0 40px rgba(0,0,0,0.6);
+  transition:all 0.3s ease;
+  margin-bottom:24px;
+}
+.banner {width:100%;height:140px;border-radius:20px;background:url('banner.jpg') center/cover no-repeat;margin-bottom:-50px;}
+.ghost-container {position:relative;width:104px;height:104px;margin:0 auto;}
+.ghost-ring {position:absolute;top:-20px;left:-20px;width:144px;height:144px;background:url('https://r2.fakecrime.bio/assets/decorations/ghosts.gif') no-repeat center;background-size:contain;z-index:0;animation:ghost-ring 6s linear infinite;}
+.avatar {width:104px;height:104px;border-radius:50%;background:url('avatar.png') center/cover no-repeat;border:3px solid white;position:relative;z-index:1;}
+.username {text-align:center;font-size:28px;font-weight:bold;margin-top:20px;color:white;text-shadow:0 0 6px rgba(255,255,255,0.9);}
+.tag-buttons {display:flex;gap:12px;margin:20px auto;justify-content:center;flex-wrap:wrap;}
+.tag-button {border:1px solid rgba(255,255,255,0.3);padding:6px 14px;border-radius:20px;font-size:11px;font-family:'Orbitron',sans-serif;color:white;text-transform:uppercase;font-weight:900;background:rgba(255,255,255,0.05);cursor:pointer;transition:all 0.3s ease;}
+.tag-button:hover {background:rgba(255,255,255,0.15);border-color:white;transform:scale(1.15);}
+.location {text-align:center;opacity:0.6;margin-top:16px;}
+.link-box, .music-card {background:rgba(10,10,10,0.5)!important;backdrop-filter:blur(10px);border-radius:24px;box-shadow:0 0 40px rgba(0,0,0,0.6);transition:all 0.3s ease;}
+@keyframes ghost-ring{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes pulse{0%{text-shadow:0 0 4px rgba(255,255,255,0.6)}50%{text-shadow:0 0 12px rgba(255,255,255,1)}100%{text-shadow:0 0 4px rgba(255,255,255,0.6)}}
+</style>
 </head>
 <body>
+               <!-- ФОТО -->
+<video class="video-bg" autoplay muted loop playsinline>
+               <!-- ФОН -->
+  <source src="фон.mp4" type="video/mp4">
+</video>
 
-    <div class="bg-glow" id="glow"></div>
+<div class="bio-wrapper" id="bioCard">
+               <!-- СТАТИСТИКА -->
+  <div style="position:absolute;top:12px;right:16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:6px 14px;font-size:10px;font-family:'Orbitron',sans-serif;color:white;text-transform:uppercase;letter-spacing:0.05em;font-weight:900;box-shadow:0 0 8px rgba(255,255,255,0.15);backdrop-filter:blur(6px)">
+    VIEWERS: <span id="viewerCount">117</span>
+  </div>
 
-    <div class="playlist-sidebar">
-        <div class="playlist-title">Playlist</div>
-        <button class="track-btn" id="btn-0" onclick="playTrack(0, 21)">1. I found you (21s)</button>
-        <button class="track-btn" id="btn-1" onclick="playTrack(1, 0)">2. Fred again.. & Young Thug - scared</button>
-        <button class="track-btn" id="btn-2" onclick="playTrack(2, 0)">3. Fred again.. & Baby Keem - leavemealone</button>
-        <button class="track-btn" id="btn-3" onclick="playTrack(3, 0)">4. Cult member</button>
+  <div class="card">
+    <div class="banner"></div>
+    <div class="ghost-container">
+      <div class="ghost-ring"></div>
+      <div class="avatar"></div>
+    </div>
+               <!-- НИКНЕЙМ & ТЕГИ -->
+    <div class="username">deko4ka</div>
+    <div class="tag-buttons">
+      <div class="tag-button">STUDENT</div>
+      <div class="tag-button">TIKTOKER</div>
+      <div class="tag-button">YOUTUBER</div>
+    </div>
+               <!-- ОПИСАНИЕ -->
+    <div class="tags">
+      <div style="text-align:center;line-height:1.6;font-size:0.92rem;font-family:'Orbitron',sans-serif;border-radius:12px;padding:10px 16px;white-space:pre-line;letter-spacing:0.03em;font-weight:900;color:white">
+        Hi, my nickname is deko4ka
+        I'm the owner of FrizeDev Studio
+
+        I'm a student, a TikToker, and a YouTuber
+
+        I'm coding HTML and CSS
+        I'm learning to write websites
+        My goal is to write large websites
+      </div>
     </div>
 
-    <div class="bio-container">
-        <img src="https://38mi38g4c9.ucarecd.net/fc7004cb-06e0-4aa1-94c6-ad38a901954d/6032936348341177763.jpg" class="avatar">
-        <h1 style="letter-spacing: 2px; margin: 0 0 5px 0;">#ᴍиᴄᴛᴇᴘ дᴇᴋᴏ</h1>
-        <p id="track-name" style="font-size: 10px; color: var(--main-color); margin-bottom: 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">🎵 Standby</p>
-
-        <div class="works">
-            <a href="https://enchantx.vercel.app/" target="_blank" class="work-card"><span>🔮 ENX</span></a>
-            <a href="https://spaceevent-sable.vercel.app/" target="_blank" class="work-card"><span>🌌 SpaceEvent</span></a>
-            <a href="https://spec-steel.vercel.app/" target="_blank" class="work-card"><span>👁️ SPEC</span></a>
-            <a href="https://grantgive.vercel.app/" target="_blank" class="work-card"><span>💳 GrantGive</span></a>
-        </div>
-
-        <div class="social-footer">
-            <a href="https://www.donationalerts.com/r/deko4ka_qq" target="_blank" class="btn btn-da">Donate</a>
-            <a href="https://discord.gg/uZXr94zXk9" target="_blank" class="btn btn-dc">Discord</a>
-        </div>
+    <div class="location" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px">
+      <img alt="location" src="location-filled-svgrepo-com.svg" style="width:20px;height:20px;filter:drop-shadow(0 0 8px rgba(255,255,255,0.7));opacity:0.8"/>
+               <!-- ВАШ ГОРОД -->
+      <div class="rainbow-text">Amsterdam</div>
     </div>
+  </div>
 
-    <div class="theme-panel">
-        <div class="color-dot" style="background: #00aaff;" onclick="setTheme('#00aaff')"></div>
-        <div class="color-dot" style="background: #ff4757;" onclick="setTheme('#ff4757')"></div>
-        <div class="color-dot" style="background: #2ed573;" onclick="setTheme('#2ed573')"></div>
-        <div class="color-dot" style="background: #ffffff;" onclick="setTheme('#ffffff')"></div>
-    </div>
+  <div class="block music-card" style="text-align: center; padding: 24px;">
+    <strong style="font-size: 18px;">ᴅᴇᴋᴏ𝟦ᴋᴀ</strong><br/>
+    <small style="opacity: 0.8;">Владелец FrizeDev</small>
+    <br/><br/>
+    <audio controls style="width: 100%; max-width: 480px; outline: none; border-radius: 10px;">
+      <source src="light cornerprod.ogg" type="audio/ogg">
+      Ваш браузер не поддерживает воспроизведение аудио.
+    </audio>
+  </div>
 
-    <div class="volume-box">
-        <span>🔊</span>
-        <input type="range" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
-    </div>
+</div>
 
-    <audio id="main-player" loop></audio>
+<script>
+const card=document.getElementById('bioCard');
+card.addEventListener('mousemove',e=>{
+  const r=card.getBoundingClientRect();
+  const x=e.clientX-r.left;
+  const y=e.clientY-r.top;
+  const cx=r.width/2;
+  const cy=r.height/2;
+  card.style.transform=`rotateX(${-(y-cy)/20}deg) rotateY(${(x-cx)/20}deg) scale(1.02)`;
+});
+card.addEventListener('mouseleave',()=>{card.style.transform='rotateX(0deg) rotateY(0deg) scale(1)'});
+</script>
 
-    <script>
-        const audio = document.getElementById('main-player');
-        const trackTitle = document.getElementById('track-name');
-        
-        const tracks = ["music/1.mp3", "music/2.mp3", "music/3.mp3", "music/4.mp3"];
-        const trackNames = ["I found you", "Scared", "Leavemealone", "Cult member"];
-
-        audio.volume = 1;
-
-        function playTrack(id, startTime) {
-            audio.src = tracks[id];
-            audio.onloadedmetadata = function() {
-                audio.currentTime = startTime;
-                let playPromise = audio.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(e => console.log("Нужен клик по странице для старта звука"));
-                }
-            };
-            trackTitle.innerText = "Playing: " + trackNames[id];
-            
-            document.querySelectorAll('.track-btn').forEach((btn, i) => {
-                btn.classList.toggle('active', i === id);
-            });
-        }
-
-        function setVolume(v) { audio.volume = v; }
-        
-        function setTheme(color) { 
-            document.documentElement.style.setProperty('--main-color', color);
-            document.querySelector('.avatar').style.boxShadow = `0 0 30px ${color}33`;
-            document.getElementById('glow').style.background = color;
-        }
-
-        window.addEventListener('load', () => {
-            playTrack(1, 0); 
-        });
-
-        document.body.addEventListener('click', () => {
-            if (audio.paused && audio.src) {
-                audio.play();
-            }
-        }, { once: true });
-    </script>
 </body>
 </html>
+<div style="display:none;">
+</div>
